@@ -7,7 +7,8 @@ import java.util.stream.IntStream;
 class Problem1 {
     public static int solution(List<Integer> pobi, List<Integer> crong) {
         if (!validation(pobi, crong)) return -1;
-        return 0;
+        if (getMax(pobi) == getMax(crong)) return 0;
+        return getMax(pobi)>getMax(crong)?1:2;
     }
 
     private static boolean validation(List<Integer> pobi, List<Integer> crong){
@@ -26,5 +27,10 @@ class Problem1 {
         return list.stream()
                 .flatMap(page -> Arrays.stream(String.valueOf(page).split("")))
                 .mapToInt(Integer::parseInt);
+    }
+    private static int getMax(List<Integer> list) {
+        int mul = decomposition(list).reduce(1, (x,y) -> x*y);
+        int sum = decomposition(list).sum();
+        return Math.max(sum, mul);
     }
 }
