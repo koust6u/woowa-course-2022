@@ -3,7 +3,11 @@ package onboarding;
 public class Problem2 {
 
     public static String solution(String cryptogram) {
-
+        while (true){
+            int prevLen = cryptogram.length();
+            cryptogram = compact(cryptogram);
+            if (prevLen == cryptogram.length()) break;
+        }
         return cryptogram;
     }
 
