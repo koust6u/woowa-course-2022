@@ -22,4 +22,9 @@ class Problem1 {
                 && crong.get(1) <= 400;
     }
 
+    private static IntStream decomposition(List<Integer> list){
+        return list.stream()
+                .flatMap(page -> Arrays.stream(String.valueOf(page).split("")))
+                .mapToInt(Integer::parseInt);
+    }
 }
