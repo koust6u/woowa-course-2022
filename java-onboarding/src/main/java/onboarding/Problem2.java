@@ -3,8 +3,8 @@ package onboarding;
 public class Problem2 {
 
     public static String solution(String cryptogram) {
-        String answer = "answer";
-        return answer;
+
+        return cryptogram;
     }
 
     private static String compact(String cipher){
@@ -13,6 +13,8 @@ public class Problem2 {
             if (cipher.charAt(i) == cipher.charAt(i+1)) i++;
             else sb.append(cipher.charAt(i));
         }
+        if (cipher.length() >= 2 && cipher.charAt(cipher.length()-1) != cipher.charAt(cipher.length()-2))
+            sb.append(cipher.charAt(cipher.length()-1));
         return sb.toString();
     }
 }
